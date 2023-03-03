@@ -83,7 +83,7 @@
 %                       name of the other substances in the
 %                       mixture. Up to 20 substances can be handled.
 %                       Valid substance names are equal to the file names
-%                       in the C:\Program Files\REFPROP\fluids\' directory.
+%                       in the C:\Program Files\REFPROP\fluids\' directoResponcery.
 %
 %       x               vector with mass fractions of the substances
 %                       in the mixture.
