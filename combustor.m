@@ -1,4 +1,4 @@
-function [h_out, s_out, T_out, P_out, Q_dot_comb] = combustor(h_in, s_in, T_in, P_in)
+function [h_out, s_out, T_out, P_out, Q_dot_comb] = combustor(h_in, s_in, T_in, P_in,T_max)
 
 P_out = P_in;                                     % Combustion chamber is isobaric
 T_out = T_max;                                    % Outputs the maximum combustion chamber pressure (design parameter)
