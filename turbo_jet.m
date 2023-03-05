@@ -15,7 +15,7 @@ v_plane = 0;
 
 [h_2, s_2, T_2, P_2, w_dot_compressor] = compressor(h_1, s_1, T_1, P_1, pressure_ratio, 0.8)
 [h_3, s_3, T_3, P_3, q_dot_comb] = combustor(h_2, s_2, T_2, P_2, T_max)
-[h_4, s_4, T_4, P_4] = turbine(h_3, s_3, T_3, P_3, w_dot_compressor, .8)
+[h_4, s_4, T_4, P_4] = turbine(h_3, s_3, T_3, P_3, w_dot_compressor, 0.8)
 thrust_spef = nozzle(h_4, h_1, v_plane, 703500)
 
 
