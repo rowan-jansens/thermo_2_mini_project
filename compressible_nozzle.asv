@@ -1,0 +1,43 @@
+%%%
+% Calculates the thrust and Sgen of jet nozzle
+%
+% Args:
+%   h4: enthalpy at state 4 (into nozzle) [J/kg]
+%   h1: enthalpy at state 1 (out of nozzle) [J/kg]
+%   v_plane: velocity of plane [m/s]
+%   q_spef: spefic heat transfer rate from exhaust steam to
+%       environment [W/(kg/s)]
+%   area_inlet: the area of the jet inlet (default 0.000254469m^2)
+%   P4: the pressure at jet inlet (Kpa)
+%   fluid: the fluid
+%   m_dot: mass flow rate
+% Returns:
+%   h_out: enthalpy at outlet
+%   T_out: temperature at outlet (K)
+%   P_out: pressure at outlet (Kpa)
+%   velocity_out: velocity out outlet (m/s)
+%%%
+
+
+function [h_out, s_out, T_out, P_out, v_out, thrust_stat] = compressible_nozzle(h_in, s_in, T_in, T_1)
+
+    global fluid mass_flow_rate
+    
+    % Air Params:
+    P_out = 101; %atmospheric pressure
+    gamma = 1.4177; %for adiabatic process
+    
+    % Properties
+    s_out = s_in; %treat as ideal adiabatic process => isentropic
+    rho_out = refpropm('D','P',P_out,'S',s_out,fluid); %find density at nozzle exit
+
+    % Find velocity out (uses Compressible Bernoulli Equation)
+    A = P_in/rho_in - P_out/rho_out;
+    B = gamma / (gamma - 1);
+    C = v_in^2 * 0.5
+    v_out = sqrt(2*(B*A + C));
+    
+    % Calculate static thrust
+    thrust_stat = mass_flow_rate * (v_out - v_in);
+
+end
