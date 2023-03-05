@@ -13,7 +13,7 @@
 %   thrust_spef: specific thrust of engine [N/(kg/s)]
 %%%
 
-function thrust_spef = nozzle(h4, h1, v_plane, q_spef, area_inlet = 0.000254469,P4)
+function thrust_spef = nozzle(h4, h1, v_plane, q_spef, area_inlet,P4)
     % No longer assumes Assume adiabatic nozzle
     h_delta = h4 - h1;
     density = refpropm('D','P',P4,'H',h4,fluid)%density at state 1
