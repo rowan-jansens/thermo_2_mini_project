@@ -10,8 +10,7 @@ h_out_real = h_in -w_dot_real                              %Real Enthalpy
 Cp = refpropm('C', 'T', T_in, 'S', s_out_ideal, fluid)
 Cv = refpropm('O', 'T', T_in, 'S', s_out_ideal, fluid)
 gamma_air = Cp/Cv     %gamma unitless
-
-P_out = (P_in*(-1*(((w_dot_real)/(n_turbine*Cp*T_in))-1))^(gamma_air/(gamma_air-1))) %Pressure out
+P_out = (-P_in*(((w_dot_real)/(n_turbine*Cp*T_in))-1)^(gamma_air/(gamma_air-1))) %Pressure out
 
 s_out = refpropm('S', 'P', P_out, 'H', h_out_real, fluid);          %entropy out
 T_out = refpropm('T', 'P', P_out, 'H', h_out_real, fluid);          %tempature out
