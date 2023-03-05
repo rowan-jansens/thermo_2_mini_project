@@ -1,4 +1,4 @@
-function [thrust_spef] = turbo_jet(T_1, P_1, T_max, pressure_ratio)
+function [thrust_spef, Q_dot_comb, usefull_enthalpy] = turbo_jet(T_1, P_1, T_max, pressure_ratio)
 global fluid mass_flow_rate
 % State 1 = before the compressor
 % State 2 = before the combustor
@@ -19,6 +19,7 @@ v_plane = 0;
 thrust_spef = nozzle(h_4, h_1, v_plane, 703500)
 
 
+usefull_enthalpy = h_4 - h_1;
 
 figure(1)
 clf
