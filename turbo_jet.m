@@ -1,4 +1,4 @@
-function [thrust_spef, Q_dot_comb, usefull_enthalpy] = turbo_jet(T_1, P_1, T_max, pressure_ratio)
+function [thrust_spef, total_thrust, Q_dot_comb, usefull_enthalpy] = turbo_jet(T_1, P_1, T_max, pressure_ratio)
 global fluid mass_flow_rate
 % State 1 = before the compressor
 % State 2 = before the combustor
@@ -19,9 +19,9 @@ a_turbine = pi*(0.084/2)^2;
 [h_4, s_4, T_4, P_4] = turbine(h_3, s_3, T_3, P_3, W_dot_compressor, 0.8)
 
 [h_5, s_5, T_5, P_5, velocity_out] = simple_nozzle(h_4, s_4, T_4, T_1)
-
-
-thrust_spef = nozzle(h_4, h_1, v_plane, 0, a_turbine, P_4)
+thrust_spef = velocity_out;
+total_thrust = thrust_spef * mass_flow_rate;
+% thrust_spef = nozzle(h_4, h_1, v_plane, 0, a_turbine, P_4)
 
 
 

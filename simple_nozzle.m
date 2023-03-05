@@ -22,7 +22,7 @@ function [h_out, s_out, T_out, P_out, velocity_out] = simple_nozzle(h_in, s_in, 
     P_out = 101; %atmospheric
     T_exit = T_in; %treat like an expansion valve, t=const
     T_out = T_1;
-    density = refpropm('D','T',T_exit,'P',P_out,fluid) %find density at nozzle exit
+    density = refpropm('D','T',T_exit,'P',P_out,fluid); %find density at nozzle exit
 
     s_out = refpropm('S','T',T_out,'P',P_out,fluid);
     h_out = refpropm('H','T',T_out,'P',P_out,fluid);
