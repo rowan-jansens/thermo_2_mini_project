@@ -15,16 +15,21 @@
 %   thrust_spef: specific thrust of engine [N/(kg/s)]
 %%%
 
-function thrust_spef = nozzle(h4, h1, v_plane, q_spef, area_inlet,P4)
+
+function [h_out, s_out, T_out, P_out, velocity_out] = simple_nozzle(h_in, s_in, T_in, T_1)
 
     global fluid mass_flow_rate
-    % No longer assumes Assume adiabatic nozzle
-    h_delta = h4 - h1;
-    density = refpropm('D','P',P4,'H',h4,fluid)%density at state 1
+    P_out = 101; %atmospheric
+    T_exit = T_in; %treat like an expansion valve, t=const
+    T_out = T_1;
+    density = refpropm('D','T',T_exit,'P',P_out,fluid) %find density at nozzle exit
 
-    
-    v_dot = mass_flow_rate / density;
-    v_in = v_dot/area_inlet;
-    v_out = sqrt(v_in^2+2*h_delta*q_spef); %velocity out of turbine
-    thrust_spef = (v_out - v_plane);
+    s_out = refpropm('S','T',T_out,'P',P_out,fluid);
+    h_out = refpropm('H','T',T_out,'P',P_out,fluid);
+
+
+    %velocity using continuity equation
+    area_outlet = pi*(0.0); %m^2
+    velocity_out = mass_flow_rate/area_outlet/density;  %velocity out of the engine
+
 end

@@ -4,6 +4,8 @@ global fluid mass_flow_rate
 
 P_out = P_in;                                    % Combustion chamber is isobaric
 T_out = T_max;                                   % Outputs the maximum combustion chamber pressure (design parameter)
+
+
 s_out = refpropm('S','T',T_out,'P',P_out,fluid); % Calculates the entropy at combustion chamber output
 h_out = refpropm('H','T',T_out,'P',P_out,fluid); % Calculates the enthalpy at combustion chamber output
 
