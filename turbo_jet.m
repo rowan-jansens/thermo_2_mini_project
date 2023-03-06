@@ -23,49 +23,49 @@ a_turbine = pi*(0.084/2)^2;
 
 
 v_in  = mass_flow_rate / (rho_4*a_turbine);
-[h_4_prime, s_4_prime, T_4_prime, P_4_prume, v_out, thrust_stat, rho_5] = compressible_nozzle(rho_4, s_4, P_4, v_in);
+[h_4_prime, s_4_prime, T_4_prime, P_4_prime, v_out, thrust_stat, rho_5] = compressible_nozzle(rho_4, s_4, P_4, v_in);
 % thrust_spef = nozzle(h_4, h_1, v_plane, 0, a_turbine, P_4)
-usefull_enthalpy = h_4 - h_1;
+usefull_enthalpy = h_3 - h_4 + W_dot_compressor
 
-efficiency = thrust_stat / Q_dot_comb;
+T_3
+efficiency = thrust_stat / Q_dot_comb
+thrust_stat
+Q_dot_comb
+eff_unitless = mass_flow_rate*usefull_enthalpy/Q_dot_comb
 
-% figure(1)
-% clf
-% subplot(2, 2, 1)
-% plot([1 2 3 4], [T_1 T_2 T_3 T_4], "LineWidth", 2)
-% title("Temperature")
-% grid on
-% grid minor
-% xlabel("Station")
-% ylabel("Temperature (K)")
-% 
-% 
-% subplot(2, 2, 2)
-% plot([1 2 3 4], [P_1 P_2 P_3 P_4], "LineWidth", 2)
-% title("Presssure")
-% grid on
-% grid minor
-% xlabel("Station")
-% ylabel("Pressure (kPa)")
-% 
-% subplot(2, 2, 3)
-% plot([1 2 3 4], [s_1 s_2 s_3 s_4], "LineWidth", 2)
-% title("Entropy")
-% grid on
-% grid minor
-% xlabel("Station")
-% ylabel("Entropy (J/kg K)")
-% 
-% subplot(2, 2, 4)
-% plot([1 2 3 4], [h_1 h_2 h_3 h_4], "LineWidth", 2)
-% title("Enthalpy")
-% grid on
-% grid minor
-% xlabel("Station")
-% ylabel("Enthalpy (J/Kg)")
+figure()%1
+clf
+subplot(2, 2, 1)
+plot([1 2 3 4 5], [T_1 T_2 T_3 T_4 T_4_prime], "LineWidth", 2)
+title("Temperature")
+grid on
+grid minor
+xlabel("Station")
+ylabel("Temperature (K)")
 
 
+subplot(2, 2, 2)
+plot([1 2 3 4 5], [P_1 P_2 P_3 P_4 P_4_prime], "LineWidth", 2)
+title("Presssure")
+grid on
+grid minor
+xlabel("Station")
+ylabel("Pressure (kPa)")
 
-    
+subplot(2, 2, 3)
+plot([1 2 3 4 5], [s_1 s_2 s_3 s_4 s_4_prime], "LineWidth", 2)
+title("Entropy")
+grid on
+grid minor
+xlabel("Station")
+ylabel("Entropy (J/kg K)")
+
+subplot(2, 2, 4)
+plot([1 2 3 4,5], [h_1 h_2 h_3 h_4 h_4_prime], "LineWidth", 2)
+title("Enthalpy")
+grid on
+grid minor
+xlabel("Station")
+ylabel("Enthalpy (J/Kg)")
 
 end
