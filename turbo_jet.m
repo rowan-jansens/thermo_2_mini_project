@@ -32,37 +32,55 @@ efficiency = thrust_stat / Q_dot_comb;
 % figure(1)
 % clf
 % subplot(2, 2, 1)
-% plot([1 2 3 4], [T_1 T_2 T_3 T_4], "LineWidth", 2)
+% plot([1 2 3 4], [T_1 T_2 T_3 T_4], "LineWidth", 2, "Color", spring(1))
 % title("Temperature")
 % grid on
 % grid minor
 % xlabel("Station")
 % ylabel("Temperature (K)")
+%  set(gca,'Color', [0.1 0.1 0.1])
+%     set(gca,'XColor',[1 1 1])
+%     set(gca,'YColor',[1 1 1])
 % 
 % 
 % subplot(2, 2, 2)
-% plot([1 2 3 4], [P_1 P_2 P_3 P_4], "LineWidth", 2)
+% plot([1 2 3 4], [P_1 P_2 P_3 P_4], "LineWidth", 2, "Color", spring(1))
 % title("Presssure")
 % grid on
 % grid minor
 % xlabel("Station")
 % ylabel("Pressure (kPa)")
+%  set(gca,'Color', [0.1 0.1 0.1])
+%     set(gca,'XColor',[1 1 1])
+%     set(gca,'YColor',[1 1 1])
 % 
 % subplot(2, 2, 3)
-% plot([1 2 3 4], [s_1 s_2 s_3 s_4], "LineWidth", 2)
+% plot([1 2 3 4], [s_1 s_2 s_3 s_4], "LineWidth", 2, "Color", spring(1))
 % title("Entropy")
 % grid on
 % grid minor
 % xlabel("Station")
 % ylabel("Entropy (J/kg K)")
+%  set(gca,'Color', [0.1 0.1 0.1])
+%     set(gca,'XColor',[1 1 1])
+%     set(gca,'YColor',[1 1 1])
 % 
 % subplot(2, 2, 4)
-% plot([1 2 3 4], [h_1 h_2 h_3 h_4], "LineWidth", 2)
+% plot([1 2 3 4], [h_1 h_2 h_3 h_4], "LineWidth", 2, "Color", spring(1))
 % title("Enthalpy")
 % grid on
 % grid minor
 % xlabel("Station")
 % ylabel("Enthalpy (J/Kg)")
+% 
+%  set(gca,'Color', [0.1 0.1 0.1])
+%     set(gca,'XColor',[1 1 1])
+%     set(gca,'YColor',[1 1 1])
+%     set(gcf,'Color','k')
+%     set(gcf, 'InvertHardcopy', 'off');
+% print(gcf,'plot.png','-dpng','-r600')
+% 
+% sgtitle("Fluid States", "color", [1 1 1])
 
 
 
