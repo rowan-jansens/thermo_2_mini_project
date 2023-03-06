@@ -12,10 +12,11 @@
 %   P_out: pressure at outlet (Kpa)
 %   v_out: velocity out outlet (m/s)
 %   thrust_stat: static thrust (N)
+%   rho_out: density at outlet of nozzle (kg/m^3)
 %%%
 
 
-function [h_out, s_out, T_out, P_out, v_out, thrust_stat] = compressible_nozzle(rho_in, s_in, P_in, v_in)
+function [h_out, s_out, T_out, P_out, v_out, thrust_stat, rho_out] = compressible_nozzle(rho_in, s_in, P_in, v_in)
 
     global fluid mass_flow_rate
     

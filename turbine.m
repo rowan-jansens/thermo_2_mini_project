@@ -1,4 +1,4 @@
-function [h_out_real, s_out, T_out, P_out] = turbine(h_in, s_in, T_in, P_in, W_dot_compressor, n_turbine)
+function [h_out_real, s_out, T_out, P_out, rho_out] = turbine(h_in, s_in, T_in, P_in, W_dot_compressor, n_turbine)
 global fluid mass_flow_rate
 
 s_out_ideal = s_in;                                         %Ideal entropy
@@ -16,5 +16,6 @@ P_out = P_out/1000;
 
 s_out = refpropm('S', 'P', P_out, 'H', h_out_real, fluid);          %entropy out
 T_out = refpropm('T', 'P', P_out, 'H', h_out_real, fluid);          %tempature out
+rho_out = refpropm('D', 'P', P_out, 'H', h_out_real, fluid);
 
 end
