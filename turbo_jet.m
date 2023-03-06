@@ -14,13 +14,13 @@ a_turbine = pi*(0.084/2)^2;
     h_1 = refpropm('H', 'T', T_1, 'P', P_1, fluid)
 
 
-[h_2, s_2, T_2, P_2, W_dot_compressor] = compressor(h_1, s_1, T_1, P_1, pressure_ratio, 0.8)
-[h_3, s_3, T_3, P_3, Q_dot_comb] = combustor(h_2, s_2, T_2, P_2, T_max)
-[h_4, s_4, T_4, P_4] = turbine(h_3, s_3, T_3, P_3, W_dot_compressor, 0.8)
+[h_2, s_2, T_2, P_2, W_dot_compressor, rho_2] = compressor(h_1, s_1, T_1, P_1, pressure_ratio, 0.8)
+[h_3, s_3, T_3, P_3, Q_dot_comb, rho_3] = combustor(h_2, s_2, T_2, P_2, T_max)
+[h_4, s_4, T_4, P_4, rho_4] = turbine(h_3, s_3, T_3, P_3, W_dot_compressor, 0.8)
 
-rho_4 = refpropm('D','P',P_4,'H',h_4,fluid);
+
 v_in  = mass_flow_rate / (rho_4*a_turbine)
-[h_4_prime, s_4_prime, T_4_prime, P_4_prume, v_out, thrust_stat] = compressible_nozzle(rho_4, s_4, P_4, v_in)
+[h_4_prime, s_4_prime, T_4_prime, P_4_prume, v_out, thrust_stat, rho_5] = compressible_nozzle(rho_4, s_4, P_4, v_in)
 % thrust_spef = nozzle(h_4, h_1, v_plane, 0, a_turbine, P_4)
 usefull_enthalpy = h_4 - h_1;
 
