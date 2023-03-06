@@ -4,7 +4,7 @@ global fluid mass_flow_rate
 s_out_ideal = s_in;                                         %Ideal entropy
 h_out_ideal = h_in - (W_dot_compressor / mass_flow_rate);                        %Ideal enthalpy
 
-W_dot_real = W_dot_compressor*n_turbine                    %Real work
+W_dot_real = W_dot_compressor*n_turbine;                 %Real work
 h_out_real = h_in - (W_dot_real/mass_flow_rate);                             %Real Enthalpy
 
 Cp = refpropm('C', 'T', T_in, 'S', s_out_ideal, fluid);
