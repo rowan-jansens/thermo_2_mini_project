@@ -15,7 +15,7 @@ Q_dot_comb = (h_out - h_in) * mass_flow_rate;
 
 j_per_kg_A1 = 43150000;                    % Joules per kg of jet A-1 fuel
 
-fuel_m_dot = j_per_kg_A1 / Q_dot_comb;      % Fuel mass flow rate [kg/s]
+fuel_m_dot = Q_dot_comb/j_per_kg_A1;       % Fuel mass flow rate [kg/s]
 
 end
 
